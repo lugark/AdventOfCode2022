@@ -25,3 +25,18 @@ foreach ($input as $line) {
     }
 }
 var_dump($priority);
+
+$group = [];
+$badgeSum = 0;
+foreach ($input as $key => $line) {
+    $group[] = str_split($line);
+    if (($key+1) % 3 === 0) {
+        $inAll = array_intersect($group[0], $group[1], $group[2]);
+        if (!empty($inAll)) {
+            $ord = ord(array_pop($inAll));
+            $badgeSum += $ord > 90 ? $ord - 96 : $ord - 38;
+        }
+        $group = [];        
+    }
+}
+var_dump($badgeSum);
