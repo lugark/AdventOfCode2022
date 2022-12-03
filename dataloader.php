@@ -9,3 +9,13 @@ function loadDay2Data()
     }
     return $data;
 }
+
+function loadDay3Data()
+{
+    $data = [];
+    $f = fopen('data/day3.txt', 'r');
+    while ($row = fgets($f)) {
+        $data[] = trim($row);
+    }
+    return $data;
+}
