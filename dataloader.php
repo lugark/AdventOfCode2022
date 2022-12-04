@@ -1,5 +1,15 @@
 <?php
 
+function loadAsCSV($file, $separator): array
+{
+    $data = [];
+    $f = fopen($file, 'r');
+    while ($row = fgetcsv($f, null, $separator)) {
+        $data[] = $row;
+    }
+    return $data;
+}
+
 function loadDay2Data()
 {
     $data = [];
@@ -18,4 +28,9 @@ function loadDay3Data()
         $data[] = trim($row);
     }
     return $data;
+}
+
+function loadDay4Data()
+{
+    return loadAsCSV('data/day4.txt', ',');
 }
