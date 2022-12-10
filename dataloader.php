@@ -96,3 +96,8 @@ function loadDay8Data()
     }
     return $data;
 }
+
+function loadDay10Data()
+{
+    return loadAsText('data/day10.txt');
+}
