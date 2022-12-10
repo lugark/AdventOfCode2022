@@ -48,8 +48,8 @@ function loadDay4Data()
 function loadDay5Data()
 {
     /**
-     * 
-     * [T]     [D]         [L]            
+     *
+     * [T]     [D]         [L]
      * [R]     [S] [G]     [P]         [H]
      * [G]     [H] [W]     [R] [L]     [P]
      * [W]     [G] [F] [H] [S] [M]     [L]
@@ -57,9 +57,9 @@ function loadDay5Data()
      * [M] [R] [R] [P] [M] [T] [H] [Q] [C]
      * [F] [F] [Z] [H] [S] [Z] [T] [D] [S]
      * [P] [H] [P] [Q] [P] [M] [P] [F] [D]
-     *  1   2   3   4   5   6   7   8   9 
+     *  1   2   3   4   5   6   7   8   9
      */
-    $schema = ["[T]     [D]         [L]            ", 
+    $schema = ["[T]     [D]         [L]            ",
                "[R]     [S] [G]     [P]         [H]",
                "[G]     [H] [W]     [R] [L]     [P]",
                "[W]     [G] [F] [H] [S] [M]     [L]",
@@ -74,11 +74,25 @@ function loadDay5Data()
             if ($row[($i*4)+1] !== " ") {
                 array_unshift($crates[$i], $row[($i*4)+1]);
             }
-        }        
+        }
     }
 
     return [
         'moves' => loadAsText('data/day5.txt'),
         'crates' => $crates
     ];
+}
+
+function loadDay7Data()
+{
+    return loadAsText('data/day7.txt');
+}
+
+function loadDay8Data()
+{
+    $data = [];
+    foreach (loadAsText('data/day8.txt') as $line) {
+        $data[] = str_split(trim($line));
+    }
+    return $data;
 }
